@@ -38,6 +38,7 @@ onMounted(() => {
           <component :is="ymapMarker" :coords="coords" :icon="markerIcon" :markerId="1" />
         </component>
       </div>
+      <atoms-yandex-taxi-button class="mb-16" data-aos="fade" />
     </div>
   </section>
 </template>
