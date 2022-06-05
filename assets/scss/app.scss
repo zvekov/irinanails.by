@@ -37,7 +37,10 @@ body {
 
   &::after {
     @apply -mb-40 bottom-0 bg-right-bottom;
-    background-position-x: -9rem;
+    background-position-x: -30rem;
     transform: rotate(180deg);
+    @screen md {
+      background-position-x: -9rem;
+    }
   }
 }

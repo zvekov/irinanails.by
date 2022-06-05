@@ -46,7 +46,7 @@ const {
 </template>
 <style lang="scss" module>
 .services {
-  @apply pt-48 pb-32;
+  @apply pt-48 pb-48 md:pb-32;
 
   h2 {
     @apply font-bold text-4xl text-center;
