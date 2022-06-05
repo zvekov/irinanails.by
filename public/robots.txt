@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: */services-all
+Disallow: /booking
+
+User-agent: Yandex
+Disallow: */services-all
+Disallow: /booking
+
+Host: irinanails.by
+Sitemap: https://irinanails.by/sitemap.xml.gz
+Sitemap: https://irinanails.by/sitemap.xml

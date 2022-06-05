@@ -1,0 +1,37 @@
+@import "./fonts";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-dark;
+}
+
+.container {
+  @apply mx-auto px-4;
+}
+
+.btn-record {
+  @apply py-4 text-lg rounded-lg font-bold text-white w-full text-center;
+  background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+}
+
+.bg-cloud {
+  &::before {
+    @apply w-full h-56 -mt-40 absolute top-0 bg-cover bg-bottom bg-right-top bg-no-repeat content-none;
+    background-position-y: 4.25rem;
+    content: "";
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1536' height='91' fill='none' viewBox='0 0 1536 91'%3E%3Cpath fill='%23FEF0EB' d='M1536 90.72H0V45.78C47.32 45.1 72.32 37.673 73 85c30.833-49.167 68.833-30.833 118 0 18.92-29.087 43.92-30.92 73-12 8.44-39.56 32.44-55.12 72-46.68 45.973-34.027 85.973-28.05 120 17.93 55-25.007 92.5-22.03 117.5 32.97 17.98-30.02 44.48-24.023 74.5-6.05 35.193-44.807 75.193-49.617 120-14.43 9.253-38.747 33.253-53.493 72-44.24 28.267-19.733 52.267-15.463 72 12.81 62.827-17.18 94.83-8.417 112 54.41 5.51-42.493 37.51-46.923 80-41.41 44.25-35.76 84.25-31.517 120 12.73 29.69-50.313 69.69-60.63 120-30.95 29.77-18.233 53.77-12.467 72 17.3 61.97-18.027 101.97-8.65 120 53.33Z'/%3E%3C/svg%3E%0A");
+  }
+
+  &::after {
+    @apply w-full h-40 -mb-32 absolute bottom-0 bg-cover bg-bottom bg-left bg-no-repeat content-none;
+    background-position-x: -9rem;
+    content: "";
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1536' height='91' fill='none' viewBox='0 0 1536 91'%3E%3Cpath fill='%23FEF0EB' d='M0 .333h1536v44.94c-47.32.68-72.32 8.106-73-39.22-30.83 49.166-68.83 30.833-118 0-18.92 29.086-43.92 30.92-73 12-8.44 39.56-32.44 55.12-72 46.68-45.97 34.026-85.97 28.05-120-17.93-55 25.007-92.5 22.03-117.5-32.97-17.98 30.02-44.48 24.023-74.5 6.05-35.193 44.806-75.193 49.616-120 14.43-9.253 38.746-33.253 53.493-72 44.24-28.267 19.733-52.267 15.463-72-12.81-62.827 17.18-94.827 8.416-112-54.41-5.507 42.493-37.507 46.923-80 41.41-44.247 35.76-84.247 31.517-120-12.73-29.687 50.313-69.687 60.63-120 30.95-29.767 18.233-53.767 12.467-72-17.3C58.027 71.69 18.027 62.313 0 .333Z'/%3E%3C/svg%3E%0A");
+  }
+}

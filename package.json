@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "@gtm-support/vue-gtm": "^1.4.0",
+    "@nuxtjs/tailwindcss": "^5.0.4",
+    "@types/aos": "^3.0.4",
+    "@vueuse/nuxt": "^8.4.2",
+    "aos": "^2.3.4",
+    "autoprefixer": "10.4.7",
+    "marked": "^4.0.15",
+    "nuxt": "^3.0.0-rc.3",
+    "postcss": "8.4.13",
+    "postcss-nesting": "^10.1.5",
+    "sass": "1.51.0",
+    "sass-loader": "12.6.0",
+    "vue-yandex-maps": "^0.12.3"
+  },
+  "dependencies": {}
+}
