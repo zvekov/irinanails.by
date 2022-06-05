@@ -18,12 +18,12 @@ const images = computed(() => portfolio?.value.records[0]?.fields?.Images)
       <div v-if="pending" class="py-16">
         Подождитe...
       </div>
-      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-8 py-16">
-        <div v-for="item in images" :key="item.id"
-             :class="$style.portfolio__item" data-aos="fade-up">
-          <img :src="item.thumbnails.large.url" width="320" height="320" loading="lazy"/>
-        </div>
-      </div>
+      <ui-gallery
+          v-else
+          galleryID="portfolio"
+          :images="images"
+          class=" grid grid-cols-1 md:grid-cols-3 gap-8 py-16"
+          data-aos="fade-up"/>
       <ui-button
           :class="$style.portfolio__button"
           :isExternal="true"
@@ -42,15 +42,6 @@ const images = computed(() => portfolio?.value.records[0]?.fields?.Images)
 
   h3 {
     @apply font-bold text-xl text-center px-8;
-  }
-
-  &__item {
-    @apply w-[20rem] h-[20rem];
-
-    & img {
-      @apply w-full h-full object-cover object-center rounded-lg;
-      filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15))
-    }
   }
 
   &__button {

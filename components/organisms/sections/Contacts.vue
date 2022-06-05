@@ -26,7 +26,7 @@ onMounted(() => {
   <section id="contacts" :class="$style.contacts" class="relative">
     <div class="container flex flex-col items-center pt-16">
       <h2 data-aos="fade-up">На карте</h2>
-      <div data-aos="fade-up" class="py-16 w-full h-full">
+      <div data-aos="fade-up" class="my-16 w-full h-full">
         <component v-if="pageReady" ref="map" :is="yandexMap" id="map"
              :class="$style.contacts__map"
             :coords="coords"
