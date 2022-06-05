@@ -53,7 +53,7 @@ start-lat=
 
 <style lang="scss" module>
 .yandexTaxiBtn {
-  @apply bg-white rounded-lg px-4 py-2 grid grid-rows-2 grid-cols-4 items-center hover:scale-110 transition-all;
+  @apply w-max bg-white rounded-lg px-4 py-2 grid grid-rows-2 grid-cols-4 items-center hover:scale-110 transition-all;
   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15));
 
   & svg {
