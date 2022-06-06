@@ -17,7 +17,7 @@ const options = {
 const url = `https://${options.app_code}.redirect.appmetrica.yandex.com/route?` + new URLSearchParams(options.query)
 
 const text = 'Вызвать такси до'
-const address = 'улица Петровского, 44'
+const address = 'ул. Петровского, 44'
 </script>
 
 
@@ -62,7 +62,7 @@ const address = 'улица Петровского, 44'
 
 <style lang="scss" module>
 .yandexTaxiBtn {
-  @apply w-[16rem] bg-white rounded-lg py-2 grid grid-rows-2 grid-cols-4 items-center;
+  @apply w-[14rem] bg-white rounded-lg py-2 grid grid-rows-2 grid-cols-4 items-center;
   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15));
 
   & svg {

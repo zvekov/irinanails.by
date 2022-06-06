@@ -19,7 +19,7 @@ const images = computed(() => portfolio?.value.records[0]?.fields?.Images)
 </script>
 
 <template>
-  <section id="portfolio" :class="$style.portfolio" class="pt-48 pb-24">
+  <section id="portfolio" :class="$style.portfolio" class="py-48">
     <div class="container flex flex-col items-center">
       <h2 data-aos="fade-up">Портфолио</h2>
       <div v-if="pending" class="py-16">

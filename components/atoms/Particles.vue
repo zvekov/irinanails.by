@@ -32,7 +32,7 @@ const options = {
     },
     modes: {
       bubble: {
-        distance: 400,
+        distance: 100,
         duration: 2,
         opacity: 0.8,
         size: 40,
@@ -53,14 +53,15 @@ const options = {
       zIndex: 0
     },
     color: {
-      value: ['#FD98CF', '#E74249', '#F8C5A1'],
+      // value: ['#FD98CF', '#E74249', '#F8C5A1'],
+      value: '#FEF0EB',
       random: true
     },
     links: {
       color: '#ffffff',
       distance: 150,
       enable: true,
-      opacity: 0.15,
+      opacity: 0.9,
       width: 10
     },
     collisions: {
@@ -82,7 +83,7 @@ const options = {
       value: 100
     },
     opacity: {
-      value: 0.15
+      value: 0.7
     },
     shape: {
       type: 'circle'
@@ -105,8 +106,7 @@ onMounted(() => {
     <Particles
         :particlesInit="particlesInit"
         :particlesLoaded="particlesLoaded"
-        id="tsparticles"
-        class="h-screen w-screen"
+        id="hero__particles"
         :options="options"
     />
   </div>

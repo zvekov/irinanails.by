@@ -20,7 +20,7 @@ defineProps({
 </script>
 
 <template>
-    <a v-if="isExternal" :class="`btn-${type}`" :href="href" :target="target">
+    <a v-if="isExternal" :class="`btn__${type}`" :href="href" :target="target">
       <slot/>
     </a>
     <nuxt-link v-else :to="href">
