@@ -15,6 +15,7 @@ const {
 
 <template>
   <section id="services" :class="$style.services">
+    <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
 <!--    {{services}}-->
     <div class="container flex flex-col items-center">
       <h2 data-aos="fade-up">Услуги</h2>
@@ -44,7 +45,7 @@ const {
 </template>
 <style lang="scss" module>
 .services {
-  @apply pt-48 pb-48;
+  @apply pt-48 pb-48 relative;
 
   h2 {
     @apply font-bold text-4xl text-center;

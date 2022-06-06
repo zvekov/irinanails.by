@@ -6,7 +6,7 @@ const particlesInit = async (engine) => {
 }
 
 const particlesLoaded = async (container) => {
-  console.log("Particles container loaded", container);
+ // console.log("Particles container loaded", container);
 }
 import {onMounted, ref} from "vue";
 
@@ -48,6 +48,10 @@ const options = {
     }
   },
   particles: {
+    fullScreen: {
+      enable: false,
+      zIndex: 0
+    },
     color: {
       value: ['#FD98CF', '#E74249', '#F8C5A1'],
       random: true
@@ -97,13 +101,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div :class="$style.particles">
     <Particles
         :particlesInit="particlesInit"
         :particlesLoaded="particlesLoaded"
         id="tsparticles"
-        class="w-full h-full"
+        class="h-screen w-screen"
         :options="options"
     />
   </div>
 </template>
+
+<style lang="scss" module>
+.particles {
+
+}
+</style>

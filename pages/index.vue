@@ -78,8 +78,6 @@ useMeta({
         "telephone": "+37529 939-10-73"
       }'
     />
-
-    <atoms-particles class="w-screen h-screen z-[-1] fixed" />
     <organisms-sections-hero/>
     <organisms-sections-about  />
     <organisms-sections-services/>
