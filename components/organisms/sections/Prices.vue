@@ -1,11 +1,16 @@
 <script lang="ts" setup>
-const config = useRuntimeConfig().public
+const options = {
+  base: 'app1lBv7h0eWAJ4uO',
+  table: 'Услуги',
+  fields: ['Name', 'Price'],
+  maxRecords: 'all',
+  filterByFormula: '{forPrices}'
+}
+
 const {
   pending,
   data: prices
-} = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Услуги?fields%5B%5D=Name&fields%5B%5D=Price&maxRecords=all&view=Grid%20view&filterByFormula={forPrices}`, {
-  headers: {Authorization: `Bearer ${config.airtableApiKey}`},
-})
+} = await useLazyFetch(useAirtable(options), useAuth())
 </script>
 
 <template>

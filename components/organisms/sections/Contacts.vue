@@ -1,9 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+import {ref, onMounted} from 'vue'
+import {yandexMap, ymapMarker} from 'vue-yandex-maps'
 
 const map = ref()
-const  pageReady = ref(false)
+const pageReady = ref(false)
 const settings = {
   type: "map", // Допустимые значения: map, satellite, hybrid.
   behaviors: ["multiTouch"], // Отключаем скроллинг карты в мобиле. Работает при нажатии двумя пальцами
@@ -26,19 +26,21 @@ onMounted(() => {
   <section id="contacts" :class="$style.contacts" class="relative">
     <div class="container flex flex-col items-center pt-16">
       <h2 data-aos="fade-up">На карте</h2>
-      <div data-aos="fade-up" class="my-16 w-full h-full">
+      <div data-aos="fade-up" class="py-16 w-full h-full z-50">
         <component v-if="pageReady" ref="map" :is="yandexMap" id="map"
-             :class="$style.contacts__map"
-            :coords="coords"
-            :zoom="17"
-            :map-type="settings.type"
-            :scroll-zoom="false"
-            :behaviors="settings.behaviors"
+                   :class="$style.contacts__map"
+                   :coords="coords"
+                   :zoom="17"
+                   :map-type="settings.type"
+                   :scroll-zoom="false"
+                   :behaviors="settings.behaviors"
         >
-          <component :is="ymapMarker" :coords="coords" :icon="markerIcon" :markerId="1" />
+          <component :is="ymapMarker" :coords="coords" :icon="markerIcon" :markerId="1"/>
         </component>
       </div>
-      <atoms-yandex-taxi-button class="mb-16" data-aos="fade" />
+      <div  class="z-40" data-aos="zoom-in-down" data-aos-duration="500" >
+        <atoms-yandex-taxi-button class="mb-16 hover:scale-110 transition-all"/>
+      </div>
     </div>
   </section>
 </template>
@@ -50,7 +52,7 @@ onMounted(() => {
   }
 
   &__map {
-    @apply w-full h-[30rem] rounded-lg;
+    @apply w-full h-[28rem] rounded-lg;
     filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15))
   }
 

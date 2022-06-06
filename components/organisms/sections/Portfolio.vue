@@ -1,14 +1,21 @@
 <script lang="ts" setup>
-const config = useRuntimeConfig().public
 import {computed} from 'vue'
+
+const options = {
+  base: 'app1lBv7h0eWAJ4uO',
+  table: 'Блоки',
+  fields: ['Images'],
+  maxRecords: '1',
+  filterByFormula: '{Name}="Портфолио"'
+}
 
 const {
   pending,
   data: portfolio
-} = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Блоки?&fields%5B%5D=Images&maxRecords=1&view=Grid%20view&filterByFormula={Name}="Портфолио"`, {
-  headers: {Authorization: `Bearer ${config.airtableApiKey}`},
-})
+} = await useLazyFetch(useAirtable(options), useAuth())
+
 const images = computed(() => portfolio?.value.records[0]?.fields?.Images)
+
 </script>
 
 <template>

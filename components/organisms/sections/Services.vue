@@ -1,23 +1,21 @@
 <script lang="ts" setup>
-const config = useRuntimeConfig().public
+const options = {
+  base: 'app1lBv7h0eWAJ4uO',
+  table: 'Услуги',
+  fields: ['Name', 'svgIcon', 'Description'],
+  maxRecords: 'all',
+  filterByFormula: '{forServices}'
+}
+
 const {
   pending,
   data: services
-} = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Услуги?fields%5B%5D=Name&fields%5B%5D=svgIcon&fields%5B%5D=Description&maxRecords=all&view=Grid%20view&filterByFormula={forServices}`, {
-  headers: {Authorization: `Bearer ${config.airtableApiKey}`},
-})
-
-// const {
-//   pending,
-//   data: prices
-// } = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Услуги?fields%5B%5D=Name&fields%5B%5D=Price&maxRecords=all&view=Grid%20view&filterByFormula={forPrices}`, {
-//   headers: {Authorization: `Bearer ${config.airtableApiKey}`},
-// })
-
+} = await useLazyFetch(useAirtable(options), useAuth())
 </script>
 
 <template>
   <section id="services" :class="$style.services">
+<!--    {{services}}-->
     <div class="container flex flex-col items-center">
       <h2 data-aos="fade-up">Услуги</h2>
       <div v-if="pending" class="py-16">
@@ -46,7 +44,7 @@ const {
 </template>
 <style lang="scss" module>
 .services {
-  @apply pt-48 pb-48 md:pb-32;
+  @apply pt-48 pb-48;
 
   h2 {
     @apply font-bold text-4xl text-center;

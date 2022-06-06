@@ -12,7 +12,7 @@ const {height} = useWindowSize()
   <section id="hero" :class="$style.hero">
     <div class="container flex flex-col justify-center items-center">
       <atoms-logo class="mb-4"/>
-      <h1 class="mb-8 md:hidden">Кабинет маникюра <br/>и педикюра в Жлобине</h1>
+      <h1 class="mb-8">Кабинет маникюра <br/>и педикюра в Жлобине</h1>
       <molecules-hero-information :class="height <= 627 ? 'mb-4' : 'mb-8'"/>
       <ui-button :class="$style.hero__button" :isExternal="true" :href="'#replain-link'" :target="'_self'">
         Записаться онлайн

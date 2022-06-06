@@ -8,6 +8,21 @@ const {
 } = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Настройки?&fields%5B%5D=address&fields%5B%5D=workTime&maxRecords=1&view=Grid%20view&filterByFormula={Сайт}="irinanails.by"`, {
   headers: {Authorization: `Bearer ${config.airtableApiKey}`},
 })
+
+
+const options = {
+  base: 'app1lBv7h0eWAJ4uO',
+  table: 'Настройки',
+  fields: ['address', 'workTime'],
+  maxRecords: '1',
+  filterByFormula: '{Сайт}="irinanails.by'
+}
+
+// const {
+//   pending,
+//   data: information
+// } = await useLazyFetch(useAirtable(options), useAuth())
+
 const markedAddress = computed(() => marked(information.value.records[0].fields.address))
 const markedWorkTime = computed(() => marked(information.value.records[0].fields.workTime))
 </script>

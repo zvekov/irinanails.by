@@ -38,6 +38,7 @@ export default {
       this.lightbox = new PhotoSwipeLightbox({
         gallery: '#' + this.$props.galleryID,
         children: 'a',
+        counter: false,
         closeTitle: 'Закрыть',
         zoomTitle: 'Увелиичить',
         arrowPrevTitle: 'Предыдущая работа',

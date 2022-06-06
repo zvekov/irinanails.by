@@ -27,13 +27,25 @@ useMeta({
   ]
 })
 
-// const config = useRuntimeConfig().public
+// const options = {
+//   base: 'app1lBv7h0eWAJ4uO',
+//   table: 'Услуги',
+//   fields: ['Name', 'svgIcon', 'Description'],
+//   maxRecords: 'all',
+//   filterByFormula: '{forServices}'
+// }
+
 // const {
 //   pending,
 //   data: services
-// } = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Услуги?fields%5B%5D=Name&fields%5B%5D=svgIcon&fields%5B%5D=Description&maxRecords=all&view=Grid%20view&filterByFormula={forServices}`, {
-//   headers: {Authorization: `Bearer ${config.airtableApiKey}`},
-// })
+// } = await useAsyncData('data', () => $fetch(useAirtable(options), useAuth()))
+
+
+// const config = useRuntimeConfig()
+// console.log('Runtime config:', config)
+// if (process.server) {
+//   console.log('API secret:', config.airtableApiKey)
+// }
 </script>
 
 <template>
@@ -66,6 +78,8 @@ useMeta({
         "telephone": "+37529 939-10-73"
       }'
     />
+
+    <atoms-particles class="w-screen h-screen z-[-1] fixed" />
     <organisms-sections-hero/>
     <organisms-sections-about  />
     <organisms-sections-services/>

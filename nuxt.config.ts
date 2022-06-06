@@ -57,7 +57,6 @@ export default defineNuxtConfig({
 
     // runtime config
     runtimeConfig: {
-        testConfig:  process.env.TEST,
         public: {
             airtableApiKey: process.env.AIRTABLE_API_KEY,
             airtableEndpointUrl: process.env.AIRTABLE_ENDPOINT_URL,
