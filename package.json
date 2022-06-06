@@ -16,6 +16,7 @@
     "marked": "^4.0.15",
     "nuxt": "^3.0.0-rc.3",
     "particles.vue3": "^2.0.6",
+    "photoswipe": "^5.2.7",
     "postcss": "8.4.13",
     "postcss-nesting": "^10.1.5",
     "sass": "1.51.0",
@@ -23,7 +24,5 @@
     "tsparticles": "^2.0.6",
     "vue-yandex-maps": "^0.12.3"
   },
-  "dependencies": {
-    "photoswipe": "^5.2.7"
-  }
+  "dependencies": {}
 }
