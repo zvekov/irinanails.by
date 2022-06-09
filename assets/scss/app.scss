@@ -14,28 +14,48 @@ body {
 }
 
 .bg-cloud {
-  &::before,
-  &::after {
-    @apply w-full h-[10rem] absolute bg-cover bg-bottom bg-no-repeat content-none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='133' fill='none' viewBox='0 0 1440 133'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FEF0EB' d='M1560 133H0V56.7c17.413-30.587 41.413-37.173 72-19.76 18.927-29.073 42.927-34.147 72-15.22 70.593-9.407 110.593 21.187 120 91.78 27.833-20.167 51.833-16.33 72 11.51 27.093-52.907 67.093-65.81 120-38.71 12.913-35.087 36.913-46.173 72-33.26 57.127-22.867 97.127-5.737 120 51.39 26.78-53.22 66.78-66.437 120-39.65 32.333-47.667 72.333-55.333 120-23 35.96-12.04 59.96-.08 72 35.88 54.07-25.94 94.07-11.877 120 42.19 12.21-67.787 52.21-95.577 120-83.37 50.44-29.56 90.44-19.117 120 31.33 24.45-55.547 64.45-71.093 120-46.64 46.17-33.833 86.17-27.667 120 18.5V133Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h1440v133H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
-    content: "";
-    z-index: 0;
-  }
-  &::before {
-    @apply -mt-40 top-0 bg-right-top;
-    background-position-x: -30rem;
+  @apply relative;
+  background-color: #FEF0EB;
 
-    @screen md {
-      background-position-x: -10rem;
+  &-y {
+    &::before,
+    &::after {
+      @apply w-full h-[10rem] absolute bg-cover bg-bottom bg-no-repeat content-none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='133' fill='none' viewBox='0 0 1440 133'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FEF0EB' d='M1560 133H0V56.7c17.413-30.587 41.413-37.173 72-19.76 18.927-29.073 42.927-34.147 72-15.22 70.593-9.407 110.593 21.187 120 91.78 27.833-20.167 51.833-16.33 72 11.51 27.093-52.907 67.093-65.81 120-38.71 12.913-35.087 36.913-46.173 72-33.26 57.127-22.867 97.127-5.737 120 51.39 26.78-53.22 66.78-66.437 120-39.65 32.333-47.667 72.333-55.333 120-23 35.96-12.04 59.96-.08 72 35.88 54.07-25.94 94.07-11.877 120 42.19 12.21-67.787 52.21-95.577 120-83.37 50.44-29.56 90.44-19.117 120 31.33 24.45-55.547 64.45-71.093 120-46.64 46.17-33.833 86.17-27.667 120 18.5V133Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h1440v133H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+      content: "";
+      z-index: 0;
+    }
+    &::before {
+      @apply -mt-40 top-0 bg-right-top;
+      background-position-x: -30rem;
+
+      @screen md {
+        background-position-x: -10rem;
+      }
+    }
+    &::after {
+      @apply -mb-40 bottom-0 bg-right-bottom;
+      background-position-x: -30rem;
+      transform: rotate(180deg);
+      @screen md {
+        background-position-x: -9rem;
+      }
     }
   }
+  &-t {
+    &::before {
+      @apply w-full h-[10rem] absolute bg-cover bg-bottom bg-no-repeat content-none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='133' fill='none' viewBox='0 0 1440 133'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FEF0EB' d='M1560 133H0V56.7c17.413-30.587 41.413-37.173 72-19.76 18.927-29.073 42.927-34.147 72-15.22 70.593-9.407 110.593 21.187 120 91.78 27.833-20.167 51.833-16.33 72 11.51 27.093-52.907 67.093-65.81 120-38.71 12.913-35.087 36.913-46.173 72-33.26 57.127-22.867 97.127-5.737 120 51.39 26.78-53.22 66.78-66.437 120-39.65 32.333-47.667 72.333-55.333 120-23 35.96-12.04 59.96-.08 72 35.88 54.07-25.94 94.07-11.877 120 42.19 12.21-67.787 52.21-95.577 120-83.37 50.44-29.56 90.44-19.117 120 31.33 24.45-55.547 64.45-71.093 120-46.64 46.17-33.833 86.17-27.667 120 18.5V133Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h1440v133H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+      content: "";
+      z-index: 0;
+    }
+    &::before {
+      @apply -mt-40 top-0 bg-right-top;
+      background-position-x: -30rem;
 
-  &::after {
-    @apply -mb-40 bottom-0 bg-right-bottom;
-    background-position-x: -30rem;
-    transform: rotate(180deg);
-    @screen md {
-      background-position-x: -9rem;
+      @screen md {
+        background-position-x: -10rem;
+      }
     }
   }
 }

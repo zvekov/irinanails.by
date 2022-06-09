@@ -14,33 +14,31 @@ const {
 </script>
 
 <template>
-  <section id="services" :class="$style.services">
-<!--    {{services}}-->
-    <div class="container flex flex-col items-center">
-      <h2 data-aos="fade-up">Услуги</h2>
-      <div v-if="pending" class="py-16">
-        Подождитe...
+  <ui-section id="services" :class="$style.services" title="Услуги" bg="white">
+    <div v-if="pending" class="py-16">
+      Подождитe...
+    </div>
+    <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-16 py-16">
+      <div v-for="item in services.records"
+           :key="item.id"
+           :class="$style.services__item"
+           data-aos="fade-up">
+        <span v-if="item.fields.svgIcon" v-html="item.fields.svgIcon"/>
+        <h3>{{ item.fields.Name }}</h3>
+        <p class="text-center text-lg">{{ item.fields.Description }}</p>
       </div>
-      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-16 py-16">
-        <div v-for="item in services.records"
-             :key="item.id"
-             :class="$style.services__item"
-             data-aos="fade-up">
-          <span v-if="item.fields.svgIcon" v-html="item.fields.svgIcon"/>
-          <h3>{{ item.fields.Name }}</h3>
-          <p class="text-center text-lg">{{ item.fields.Description }}</p>
-        </div>
-      </div>
+    </div>
+    <div data-aos="fade-up">
       <ui-button
           :class="$style.services__button"
           :isExternal="true"
           :href="'#replain-link'"
           :target="'_self'"
-          data-aos="fade-up">
+      >
         Записаться онлайн
       </ui-button>
     </div>
-  </section>
+  </ui-section>
 </template>
 <style lang="scss" module>
 .services {
@@ -64,8 +62,7 @@ const {
   }
 
   &__button {
-    @apply mb-auto;
-    max-width: 20rem;
+    @apply mb-auto w-[20rem];
   }
 }
 </style>

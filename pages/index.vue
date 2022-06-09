@@ -34,13 +34,13 @@ useMeta({
 //   maxRecords: 'all',
 //   filterByFormula: '{forServices}'
 // }
-
+//
 // const {
 //   pending,
 //   data: services
 // } = await useAsyncData('data', () => $fetch(useAirtable(options), useAuth()))
-
-
+//
+//
 // const config = useRuntimeConfig()
 // console.log('Runtime config:', config)
 // if (process.server) {
@@ -50,6 +50,7 @@ useMeta({
 
 <template>
   <div>
+    {{services}}
     <Script type="application/ld+json" children='
       {
         "@context": "http://www.schema.org",
@@ -78,11 +79,11 @@ useMeta({
         "telephone": "+37529 939-10-73"
       }'
     />
-    <organisms-sections-hero/>
-    <organisms-sections-about  />
-    <organisms-sections-services/>
-    <organisms-sections-prices />
-    <organisms-sections-portfolio />
-    <organisms-sections-contacts />
+    <organisms-hero/>
+    <organisms-about  />
+    <organisms-services/>
+    <organisms-prices />
+    <organisms-portfolio />
+    <organisms-contacts />
   </div>
 </template>

@@ -10,26 +10,25 @@ const {
 })
 
 
-const options = {
-  base: 'app1lBv7h0eWAJ4uO',
-  table: 'Настройки',
-  fields: ['address', 'workTime'],
-  maxRecords: '1',
-  filterByFormula: '{Сайт}="irinanails.by'
-}
+// const options = {
+//   base: 'app1lBv7h0eWAJ4uO',
+//   table: 'Настройки',
+//   fields: ['address', 'workTime'],
+//   maxRecords: '1',
+//   filterByFormula: '{Сайт}="irinanails.by'
+// }
 
 // const {
-//   pending,
 //   data: information
 // } = await useLazyFetch(useAirtable(options), useAuth())
 
-const markedAddress = computed(() => marked(information.value.records[0].fields.address))
-const markedWorkTime = computed(() => marked(information.value.records[0].fields.workTime))
+const markedAddress = computed(() => marked(information?.value.records[0]?.fields?.address))
+const markedWorkTime = computed(() => marked(information?.value.records[0]?.fields?.workTime))
 </script>
 
 <template>
   <ul :class="$style.heroInformation">
-    <li>
+    <li v-if="markedAddress">
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"
               d="m20.14 14.072-.582-7.01a.75.75 0 0 0-.75-.687H17.19a.75.75 0 0 0-.75.688l-.581 7.01"/>
@@ -46,7 +45,7 @@ const markedWorkTime = computed(() => marked(information.value.records[0].fields
 
       <span v-html="markedAddress"/>
     </li>
-    <li>
+    <li v-if="markedWorkTime">
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M17.998 35.252c9.527 0 17.25-7.724 17.25-17.25 0-9.527-7.723-17.25-17.25-17.25C8.473.752.748 8.475.748 18.002c0 9.526 7.724 17.25 17.25 17.25Z"

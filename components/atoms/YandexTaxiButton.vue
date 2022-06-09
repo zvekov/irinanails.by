@@ -18,12 +18,16 @@ const url = `https://${options.app_code}.redirect.appmetrica.yandex.com/route?` 
 
 const text = 'Вызвать такси до'
 const address = 'ул. Петровского, 44'
+
+const clickYandexGo = () => {
+  window.ym(45820515,'reachGoal','openYandexGo')
+}
 </script>
 
 
 <template>
-  <a :href="url" :class="$style.yandexTaxiBtn">
-    <span class="row-span-2 col-span-1 mx-auto">
+  <a :href="url" @click="clickYandexGo" :class="$style.yandexTaxiBtn">
+    <span :class="$style.yandexTaxiBtn__icon">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
       <mask id="a" width="32" height="32" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
@@ -65,9 +69,13 @@ const address = 'ул. Петровского, 44'
   @apply w-[14rem] bg-white rounded-lg py-2 grid grid-rows-2 grid-cols-4 items-center;
   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15));
 
-  & svg {
-    @apply rounded-md;
-    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.1));
+  &__icon {
+    @apply row-span-2 col-span-1 mx-auto;
+
+    & svg {
+      @apply rounded-md;
+      filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.1));
+    }
   }
 }
 </style>

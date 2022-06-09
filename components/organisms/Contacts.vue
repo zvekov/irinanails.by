@@ -23,9 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="contacts" :class="$style.contacts" class="relative bg-cloud">
-    <div class="container flex flex-col items-center pt-16">
-      <h2 data-aos="fade-up">На карте</h2>
+  <ui-section title="На карте" bg="cloud bg-cloud-t">
       <div data-aos="fade-up" class="pt-16 pb-8 w-full h-full z-50">
         <component v-if="pageReady" ref="map" :is="yandexMap" id="map"
                    :class="$style.contacts__map"
@@ -39,10 +37,9 @@ onMounted(() => {
         </component>
       </div>
       <div  class="z-40" data-aos="zoom-in-down" data-aos-duration="500" >
-        <atoms-yandex-taxi-button class="mb-16 hover:scale-110 transition-all"/>
+        <atoms-yandex-taxi-button class="mb-16 hover:scale-105 transition-all"/>
       </div>
-    </div>
-  </section>
+  </ui-section>
 </template>
 <style lang="scss" module>
 .contacts {

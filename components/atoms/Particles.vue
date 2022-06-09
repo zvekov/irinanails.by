@@ -24,10 +24,10 @@ const options = {
       //   enable: true,
       //   mode: 'push'
       // },
-      // onHover: {
-      //   enable: true,
-      //   mode: 'repulse'
-      // },
+      onHover: {
+        enable: true,
+        mode: 'push'
+      },
       resize: true
     },
     modes: {
@@ -53,8 +53,8 @@ const options = {
       zIndex: 0
     },
     color: {
-      // value: ['#FD98CF', '#E74249', '#F8C5A1'],
-      value: '#FEF0EB',
+      value: ['#efe6e6', '#fde6e6', '#FEF0EB'],
+      // value: '#FEF0EB',
       random: true
     },
     links: {
@@ -73,7 +73,7 @@ const options = {
       outMode: 'bounce',
       random: true,
       speed: 0.5,
-      straight: false
+      straight: true
     },
     number: {
       density: {

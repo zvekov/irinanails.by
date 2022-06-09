@@ -3,9 +3,6 @@ import {useWindowSize} from '@vueuse/core'
 
 const {height} = useWindowSize()
 
-// const clickEvent = () => {
-//   window.ym(45820515,'reachGoal','openChat')
-// }
 </script>
 
 <template>

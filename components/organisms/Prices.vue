@@ -14,9 +14,7 @@ const {
 </script>
 
 <template>
-  <section id="prices" :class="$style.prices" class="bg-cloud">
-    <div class="container flex flex-col items-center pt-16 pb-8">
-      <h2 data-aos="fade-up">Цены</h2>
+  <ui-section title="Цены" bg="cloud bg-cloud-y">
       <div v-if="pending" class="py-16" data-aos="fade-up">
         Подождитe...
       </div>
@@ -28,8 +26,7 @@ const {
           <span class="w-20 text-right">{{ item.fields.Price }} BYN</span>
         </div>
       </div>
-    </div>
-  </section>
+  </ui-section>
 </template>
 <style lang="scss" module>
 .prices {
