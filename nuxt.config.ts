@@ -52,6 +52,11 @@ export default defineNuxtConfig({
                 'vue',
                 'vue-yandex-maps'
             ]
+        },
+        css: {
+            modules: {
+                generateScopedName: "[hash:8]",
+            }
         }
     },
 
