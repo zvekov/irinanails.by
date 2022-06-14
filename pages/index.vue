@@ -50,7 +50,6 @@ useMeta({
 
 <template>
   <div>
-    {{services}}
     <Script type="application/ld+json" children='
       {
         "@context": "http://www.schema.org",
@@ -79,6 +78,7 @@ useMeta({
         "telephone": "+37529 939-10-73"
       }'
     />
+    <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
     <organisms-hero/>
     <organisms-about  />
     <organisms-services/>

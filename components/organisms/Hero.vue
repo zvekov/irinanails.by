@@ -7,7 +7,6 @@ const {height} = useWindowSize()
 
 <template>
   <section id="hero" :class="$style.hero">
-    <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
     <div class="container flex flex-col justify-center items-center">
       <atoms-logo class="mb-4"/>
       <h1 class="mb-8">Кабинет маникюра <br/>и педикюра в Жлобине</h1>

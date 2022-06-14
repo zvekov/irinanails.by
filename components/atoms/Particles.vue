@@ -16,7 +16,7 @@ const options = {
       value: '#ffffff'
     }
   },
-  fpsLimit: 30,
+  fpsLimit: 60,
   interactivity: {
     detectsOn: 'window',
     events: {
@@ -113,7 +113,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" module>
-.particles {
-
-}
+.particles {}
 </style>
