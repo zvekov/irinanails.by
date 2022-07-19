@@ -14,7 +14,7 @@
     "aos": "^2.3.4",
     "autoprefixer": "10.4.7",
     "marked": "^4.0.16",
-    "nuxt": "^3.0.0-rc.6",
+    "nuxt": "^3.0.0-rc.3",
     "particles.vue3": "^2.0.6",
     "photoswipe": "^5.2.7",
     "postcss": "8.4.14",
