@@ -49,7 +49,7 @@ useMeta({
 // import Airtable from 'airtable'
 // Airtable.configure({
 //   endpointUrl: 'https://api.airtable.com',
-//   apiKey: 'keyjzJN9Koc5vQXpU'
+//   apiKey: ''
 // });
 // const base = Airtable.base('app1lBv7h0eWAJ4uO');
 // base('Услуги').select({
