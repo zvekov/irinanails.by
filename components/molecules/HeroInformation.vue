@@ -1,34 +1,23 @@
 <script setup>
-const config = useRuntimeConfig().public
-import {computed} from 'vue'
-import {marked} from 'marked'
-
-const {
-  data: information
-} = await useLazyFetch(`${config.airtableEndpointUrl}/app1lBv7h0eWAJ4uO/Настройки?&fields%5B%5D=address&fields%5B%5D=workTime&maxRecords=1&view=Grid%20view&filterByFormula={Сайт}="irinanails.by"`, {
-  headers: {Authorization: `Bearer ${config.airtableApiKey}`},
+defineProps({
+  workTime: {
+    type: String,
+    default: ''
+  },
+  address: {
+    type: String,
+    default: ''
+  },
+  phone: {
+    type: String,
+    default: ''
+  }
 })
-
-
-// const options = {
-//   base: 'app1lBv7h0eWAJ4uO',
-//   table: 'Настройки',
-//   fields: ['address', 'workTime'],
-//   maxRecords: '1',
-//   filterByFormula: '{Сайт}="irinanails.by'
-// }
-
-// const {
-//   data: information
-// } = await useLazyFetch(useAirtable(options), useAuth())
-
-const markedAddress = computed(() => marked(information?.value.records[0]?.fields?.address))
-const markedWorkTime = computed(() => marked(information?.value.records[0]?.fields?.workTime))
 </script>
 
 <template>
   <ul :class="$style.heroInformation">
-    <li v-if="markedAddress">
+    <li v-if="address">
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"
               d="m20.14 14.072-.582-7.01a.75.75 0 0 0-.75-.687H17.19a.75.75 0 0 0-.75.688l-.581 7.01"/>
@@ -43,9 +32,9 @@ const markedWorkTime = computed(() => marked(information?.value.records[0]?.fiel
               clip-rule="evenodd"/>
       </svg>
 
-      <span v-html="markedAddress"/>
+      <span v-html="address"/>
     </li>
-    <li v-if="markedWorkTime">
+    <li v-if="workTime">
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M17.998 35.252c9.527 0 17.25-7.724 17.25-17.25 0-9.527-7.723-17.25-17.25-17.25C8.473.752.748 8.475.748 18.002c0 9.526 7.724 17.25 17.25 17.25Z"
@@ -54,10 +43,10 @@ const markedWorkTime = computed(() => marked(information?.value.records[0]?.fiel
       </svg>
 
       <span>
-      <span v-html="markedWorkTime"/>
+      <span v-html="workTime"/>
     </span>
     </li>
-    <li>
+    <li v-if="phone">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M9.99 13.35a2.667 2.667 0 0 0 0-3.771L7.16 6.75a2.667 2.667 0 0 0-3.77 0L1.837 8.303a4 4 0 0 0-.504 5.03 62.001 62.001 0 0 0 17.334 17.334 4 4 0 0 0 5.03-.506l1.554-1.552a2.667 2.667 0 0 0 0-3.77l-2.83-2.828a2.667 2.667 0 0 0-3.77 0l-.943.942a63.225 63.225 0 0 1-8.666-8.666l.947-.936Z"
@@ -68,7 +57,7 @@ const markedWorkTime = computed(() => marked(information?.value.records[0]?.fiel
               d="M16 6c5.523 0 10 4.477 10 10m-10-4.667A4.667 4.667 0 0 1 20.667 16"/>
       </svg>
       <span>
-      <atoms-phone/>
+      <atoms-phone :phone="phone"/>
     </span>
     </li>
   </ul>

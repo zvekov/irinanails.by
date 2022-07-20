@@ -19,10 +19,9 @@ function serializeQuery(params, prefix) {
 }
 
 function useAuth() {
-    const config = useRuntimeConfig().public
     const headers = {
         headers: {
-            Authorization: `Bearer ${config.airtableApiKey}`
+            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_KEY}`
         }
     }
     return headers
@@ -31,26 +30,13 @@ function useAuth() {
 export { useAuth }
 
 export default function useAirtable(options) {
-    const config = useRuntimeConfig().public
-
-    const apiUrl = config.airtableEndpointUrl
+    const apiUrl = import.meta.env.VITE_AIRTABLE_ENDPOINT_URL
     const apiBase = options.base
-
     const table = options.table
     const fields = serializeQuery(options.fields, 'fields')
-    const records = `maxRecords=${options.maxRecords}`
-    const filter = `filterByFormula=${options.filterByFormula}`
-
-    const url = `${apiUrl}/${apiBase}/${table}?${fields}&${records}&${filter}`
-
-    // const query = {
-    //     url,
-    //     options: {
-    //         headers: {
-    //             Authorization: `Bearer ${config.airtableApiKey}`
-    //         }
-    //     }
-    // }
+    const records = `${options.maxRecords ? '&maxRecords='+options.maxRecords : ''}`
+    const filter = `${options.filterByFormula ? '&filterByFormula='+options.filterByFormula : ''}`
+    const url = `${apiUrl}/${apiBase}/${table}?${fields}${records}${filter}`
 
     return url
 }

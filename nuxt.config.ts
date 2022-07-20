@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     ],
 
     // build modules
-    buildModules: [],
+    buildModules: ['@pinia/nuxt'],
 
     // auto import components
     components: {
@@ -63,9 +63,6 @@ export default defineNuxtConfig({
     // runtime config
     runtimeConfig: {
         public: {
-            airtableApiKey: process.env.AIRTABLE_API_KEY,
-            airtableEndpointUrl: process.env.AIRTABLE_ENDPOINT_URL,
-            yandexApiKey: process.env.YANDEX_API_KEY,
             gtmId: process.env.GTM_ID,
         }
     }

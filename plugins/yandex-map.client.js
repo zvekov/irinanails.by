@@ -1,10 +1,8 @@
 import YmapPlugin from 'vue-yandex-maps'
 
 export default defineNuxtPlugin((nuxtApp) => {
-    const config = useRuntimeConfig()
-
     nuxtApp.vueApp.use(YmapPlugin, {
-        apiKey: config.yandexApiKey,
+        apiKey: import.meta.env.VITE_YANDEX_API_KEY,
         lang: 'ru_RU',
         coordorder: 'latlong',
         enterprise: false,

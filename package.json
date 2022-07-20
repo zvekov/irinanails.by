@@ -25,5 +25,9 @@
     "vue-content-loader": "^2.0.1",
     "vue-yandex-maps": "^0.12.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@pinia/nuxt": "^0.3.0",
+    "airtable": "^0.11.4",
+    "pinia": "^2.0.16"
+  }
 }

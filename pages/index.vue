@@ -46,6 +46,25 @@ useMeta({
 // if (process.server) {
 //   console.log('API secret:', config.airtableApiKey)
 // }
+// import Airtable from 'airtable'
+// Airtable.configure({
+//   endpointUrl: 'https://api.airtable.com',
+//   apiKey: 'keyjzJN9Koc5vQXpU'
+// });
+// const base = Airtable.base('app1lBv7h0eWAJ4uO');
+// base('Услуги').select({
+//   maxRecords: -1,
+//   view: "Grid view"
+// }).eachPage(function page(records, fetchNextPage) {
+//   records.forEach(function(record) {
+//     record.get('Name')
+//     console.log('Retrieved', record.get('Name'));
+//   });
+//   fetchNextPage();
+// }, function done(err) {
+//   if (err) { console.error(err); return; }
+// });
+
 </script>
 
 <template>
@@ -81,7 +100,7 @@ useMeta({
     <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
     <organisms-hero/>
     <organisms-about  />
-    <organisms-services/>
+    <organisms-services />
     <organisms-prices />
     <organisms-portfolio />
     <organisms-contacts />
