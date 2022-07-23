@@ -41,7 +41,7 @@ defineProps({
         <template v-if="loading">
           <ContentLoader viewBox="0 0 252 56" :speed="2" style="width: 252px;">
             <rect x="0" y="5" rx="8" ry="8" width="252" height="18"/>
-            <rect x="0" y="35" rx="8" ry="8" width="252" height="18"/>
+            <rect x="0" y="35" rx="8" ry="8" width="172" height="18"/>
           </ContentLoader>
         </template>
         <template v-else>
@@ -59,8 +59,8 @@ defineProps({
       <Suspense>
         <template v-if="loading">
           <ContentLoader viewBox="0 0 252 56" :speed="2" style="width: 252px;">
-            <rect x="0" y="5" rx="8" ry="8" width="252" height="18"/>
-            <rect x="0" y="35" rx="8" ry="8" width="252" height="18"/>
+            <rect x="0" y="5" rx="8" ry="8" width="162" height="18"/>
+            <rect x="0" y="35" rx="8" ry="8" width="105" height="18"/>
           </ContentLoader>
         </template>
         <template v-else>
@@ -82,7 +82,7 @@ defineProps({
       <Suspense>
         <template v-if="loading">
           <ContentLoader viewBox="0 0 252 32" :speed="2" style="width: 252px;">
-            <rect x="4" y="8" rx="8" ry="8" width="248" height="18"/>
+            <rect x="4" y="8" rx="8" ry="8" width="148" height="18"/>
           </ContentLoader>
         </template>
         <template v-else>
