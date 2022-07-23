@@ -31,7 +31,7 @@ export { useAuth }
 
 export default function useAirtable(options) {
     const apiUrl = import.meta.env.VITE_AIRTABLE_ENDPOINT_URL
-    const apiBase = options.base
+    const apiBase = import.meta.env.VITE_AIRTABLE_API_BASE
     const table = options.table
     const fields = serializeQuery(options.fields, 'fields')
     const records = `${options.maxRecords ? '&maxRecords='+options.maxRecords : ''}`

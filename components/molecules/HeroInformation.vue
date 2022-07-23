@@ -1,4 +1,6 @@
 <script setup>
+import {marked} from "marked";
+
 defineProps({
   workTime: {
     type: String,
@@ -11,13 +13,16 @@ defineProps({
   phone: {
     type: String,
     default: ''
+  },
+  loading: {
+    type: Boolean,
   }
 })
 </script>
 
 <template>
   <ul :class="$style.heroInformation">
-    <li v-if="address">
+    <li>
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"
               d="m20.14 14.072-.582-7.01a.75.75 0 0 0-.75-.687H17.19a.75.75 0 0 0-.75.688l-.581 7.01"/>
@@ -31,22 +36,28 @@ defineProps({
               d="M18 .861a17.07 17.07 0 0 1 9.168 2.655c7.125 4.517 7.65 13.845 1.972 20.666a88.95 88.95 0 0 1-10.659 10.782.75.75 0 0 1-.963 0A88.999 88.999 0 0 1 6.86 24.18C1.183 17.361 1.707 8.032 8.832 3.516A17.07 17.07 0 0 1 18 .861Z"
               clip-rule="evenodd"/>
       </svg>
-
-      <span v-html="address"/>
+      <Suspense>
+      <span v-if="loading">
+          Подождитe...
+        </span>
+        <span v-else v-html="marked(address)"/>
+      </Suspense>
     </li>
-    <li v-if="workTime">
+    <li>
       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 36 36">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M17.998 35.252c9.527 0 17.25-7.724 17.25-17.25 0-9.527-7.723-17.25-17.25-17.25C8.473.752.748 8.475.748 18.002c0 9.526 7.724 17.25 17.25 17.25Z"
               clip-rule="evenodd"/>
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M18 9.752v8.25l9 8.25"/>
       </svg>
-
-      <span>
-      <span v-html="workTime"/>
-    </span>
+      <Suspense>
+      <span v-if="loading">
+          Подождитe...
+        </span>
+        <span v-else v-html="marked(workTime)"/>
+      </Suspense>
     </li>
-    <li v-if="phone">
+    <li>
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M9.99 13.35a2.667 2.667 0 0 0 0-3.771L7.16 6.75a2.667 2.667 0 0 0-3.77 0L1.837 8.303a4 4 0 0 0-.504 5.03 62.001 62.001 0 0 0 17.334 17.334 4 4 0 0 0 5.03-.506l1.554-1.552a2.667 2.667 0 0 0 0-3.77l-2.83-2.828a2.667 2.667 0 0 0-3.77 0l-.943.942a63.225 63.225 0 0 1-8.666-8.666l.947-.936Z"
@@ -56,9 +67,13 @@ defineProps({
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M16 6c5.523 0 10 4.477 10 10m-10-4.667A4.667 4.667 0 0 1 20.667 16"/>
       </svg>
-      <span>
-      <atoms-phone :phone="phone"/>
-    </span>
+
+      <Suspense>
+      <span v-if="loading">
+          Подождитe...
+        </span>
+        <atoms-phone v-else :phone="phone"/>
+      </Suspense>
     </li>
   </ul>
 </template>

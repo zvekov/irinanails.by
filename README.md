@@ -6,6 +6,7 @@
 
 ```bash
 VITE_AIRTABLE_ENDPOINT_URL=
+VITE_AIRTABLE_API_BASE=
 VITE_AIRTABLE_API_KEY=
 VITE_YANDEX_API_KEY=
 GTM_ID=
@@ -13,7 +14,7 @@ GTM_ID=
 
 ## Setup
 ```bash
-yarn install
+yarn
 ```
 
 ## Development

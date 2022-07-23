@@ -2,13 +2,13 @@ import {defineStore} from 'pinia'
 
 export type ServicesState = {
     services: {
-        records: []
+        records: any
     },
     loading: Boolean
 };
 
 export const useServicesStore = defineStore({
-    id: 'settings',
+    id: 'services',
     state: () => ({
         services: {
             records: []
@@ -17,20 +17,25 @@ export const useServicesStore = defineStore({
     } as ServicesState),
 
     getters: {
-        // servicesForPrices: (allServices: any) => {
-        //     return allServices.filter((service) => service.fields.forPrices === true)
-        // }
+        getServicesForPrices(state) {
+            return state.services?.records.filter(record => {
+                return record.fields?.forPrices === true}
+            )
+        },
+        getServicesForServices(state) {
+            return state.services?.records.filter(record => {
+                return record.fields?.forServices === true}
+            )
+        }
     },
     actions: {
         async fetchServices() {
             this.services = null
             this.loading = true
             const options = {
-                base: 'app1lBv7h0eWAJ4uO',
                 table: 'Услуги',
-                fields: ['Name', 'Description', 'Price', 'svgIcon'],
-                maxRecords: 'all',
-                filterByFormula: '{forServices}'
+                fields: ['Name', 'Description', 'Price', 'svgIcon', 'forPrices', 'forServices'],
+                maxRecords: 'all'
             }
             try {
                 this.services = await fetch(useAirtable(options), useAuth())
@@ -41,20 +46,5 @@ export const useServicesStore = defineStore({
                 this.loading = false
             }
         }
-        // getServices: async (services) => {
-        //     const options = {
-        //         base: 'app1lBv7h0eWAJ4uO',
-        //         table: 'Услуги',
-        //         fields: ['Name', 'svgIcon', 'Description'],
-        //         maxRecords: 'all',
-        //         filterByFormula: '{forServices}'
-        //     }
-        //     const {
-        //         pending,
-        //         data: servicesData
-        //     } = await useLazyFetch(useAirtable(options), useAuth())
-        //     services = servicesData
-        //     return services
-        // }
     }
 })

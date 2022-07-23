@@ -40,7 +40,7 @@ export default {
         children: 'a',
         counter: false,
         closeTitle: 'Закрыть',
-        zoomTitle: 'Увелиичить',
+        zoomTitle: 'Увеличить',
         arrowPrevTitle: 'Предыдущая работа',
         arrowNextTitle: 'Следующая работа',
 

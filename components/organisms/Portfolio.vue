@@ -2,7 +2,6 @@
 import {computed} from 'vue'
 
 const options = {
-  base: 'app1lBv7h0eWAJ4uO',
   table: 'Блоки',
   fields: ['Images'],
   maxRecords: '1',

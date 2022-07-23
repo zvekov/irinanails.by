@@ -1,20 +1,16 @@
 <script lang="ts" setup>
 import {storeToRefs} from 'pinia'
-import { useServicesStore } from '@/stores/services'
-const {fetchServices} = useServicesStore()
-const {services, loading} = storeToRefs(useServicesStore())
-fetchServices()
-// const {servicesForServices} = storeToRefs(useServicesStore())
+import { useServicesStore } from '@/stores'
+const {getServicesForServices, loading} = storeToRefs(useServicesStore())
 </script>
 
 <template>
   <ui-section id="services" :class="$style.services" title="Услуги" bg="white">
-<!--    {{servicesForServices}}-->
     <div v-if="loading" class="py-16">
       Подождитe...
     </div>
     <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-16 py-16">
-      <div v-for="item in services.records"
+      <div v-for="item in getServicesForServices"
            :key="item.id"
            :class="$style.services__item"
            data-aos="fade-up">

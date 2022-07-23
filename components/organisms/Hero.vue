@@ -1,23 +1,10 @@
 <script setup>
 import {useWindowSize} from '@vueuse/core'
-import {computed} from "vue";
-import {marked} from "marked";
+import {storeToRefs} from 'pinia'
+import { useSettingsStore } from '@/stores'
 
 const {height} = useWindowSize()
-const options = {
-  base: 'app1lBv7h0eWAJ4uO',
-  table: 'Настройки',
-  fields: ['address', 'workTime', 'phone'],
-  maxRecords: '1',
-  filterByFormula: '{Сайт}="irinanails.by"'
-}
-const {
-  pending,
-  data: information
-} = await useLazyFetch(useAirtable(options), useAuth())
-const address = computed(() => marked(information?.value.records[0]?.fields?.address))
-const workTime = computed(() => marked(information?.value.records[0]?.fields?.workTime))
-const phone = computed(() => information?.value.records[0]?.fields?.phone)
+const {getPhone, getAddress, getWorkTime, loading} = storeToRefs(useSettingsStore())
 </script>
 
 <template>
@@ -26,9 +13,10 @@ const phone = computed(() => information?.value.records[0]?.fields?.phone)
       <atoms-logo class="mb-4"/>
       <h1 class="mb-8">Кабинет маникюра <br/>и педикюра в Жлобине</h1>
       <molecules-hero-information
-          :workTime="workTime"
-          :address="address"
-          :phone="phone"
+          :loading="loading"
+          :workTime="getWorkTime"
+          :address="getAddress"
+          :phone="getPhone"
           :class="height <= 627 ? 'mb-4' : 'mb-8'"/>
       <ui-button
           :class="$style.hero__button"

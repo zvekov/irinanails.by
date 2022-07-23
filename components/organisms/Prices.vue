@@ -1,25 +1,16 @@
 <script lang="ts" setup>
-const options = {
-  base: 'app1lBv7h0eWAJ4uO',
-  table: 'Услуги',
-  fields: ['Name', 'Price'],
-  maxRecords: 'all',
-  filterByFormula: '{forPrices}'
-}
-
-const {
-  pending,
-  data: prices
-} = await useLazyFetch(useAirtable(options), useAuth())
+import {storeToRefs} from 'pinia'
+import { useServicesStore } from '@/stores'
+const {getServicesForPrices, loading} = storeToRefs(useServicesStore())
 </script>
 
 <template>
   <ui-section title="Цены" bg="cloud bg-cloud-y">
-      <div v-if="pending" class="py-16" data-aos="fade-up">
+      <div v-if="loading" class="py-16" data-aos="fade-up">
         Подождитe...
       </div>
       <div v-else class="grid grid-cols-1 gap-y-4 gap-x-2 pt-16 text-lg">
-        <div v-for="item in prices.records" :key="item.id" :class="$style.prices__item"
+        <div v-for="(item, index) in getServicesForPrices" :key="index" :class="$style.prices__item"
              data-aos="fade-up"
              data-aos-anchor-placement="top-bottom">
           <span :class="$style.prices__item__title">{{ item.fields.Name }}</span>
