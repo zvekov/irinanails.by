@@ -1,5 +1,6 @@
 <script setup>
 import {marked} from "marked";
+import {ContentLoader} from 'vue-content-loader'
 
 defineProps({
   workTime: {
@@ -37,10 +38,15 @@ defineProps({
               clip-rule="evenodd"/>
       </svg>
       <Suspense>
-      <span v-if="loading">
-          Подождитe...
-        </span>
-        <span v-else v-html="marked(address)"/>
+        <template v-if="loading">
+          <ContentLoader viewBox="0 0 252 56" :speed="2" style="width: 252px;">
+            <rect x="0" y="5" rx="8" ry="8" width="252" height="18"/>
+            <rect x="0" y="35" rx="8" ry="8" width="252" height="18"/>
+          </ContentLoader>
+        </template>
+        <template v-else>
+          <span v-html="marked(address)"/>
+        </template>
       </Suspense>
     </li>
     <li>
@@ -51,10 +57,15 @@ defineProps({
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M18 9.752v8.25l9 8.25"/>
       </svg>
       <Suspense>
-      <span v-if="loading">
-          Подождитe...
-        </span>
-        <span v-else v-html="marked(workTime)"/>
+        <template v-if="loading">
+          <ContentLoader viewBox="0 0 252 56" :speed="2" style="width: 252px;">
+            <rect x="0" y="5" rx="8" ry="8" width="252" height="18"/>
+            <rect x="0" y="35" rx="8" ry="8" width="252" height="18"/>
+          </ContentLoader>
+        </template>
+        <template v-else>
+          <span v-html="marked(workTime)"/>
+        </template>
       </Suspense>
     </li>
     <li>
@@ -69,10 +80,14 @@ defineProps({
       </svg>
 
       <Suspense>
-      <span v-if="loading">
-          Подождитe...
-        </span>
-        <atoms-phone v-else :phone="phone"/>
+        <template v-if="loading">
+          <ContentLoader viewBox="0 0 252 32" :speed="2" style="width: 252px;">
+            <rect x="4" y="8" rx="8" ry="8" width="248" height="18"/>
+          </ContentLoader>
+        </template>
+        <template v-else>
+        <atoms-phone :phone="phone"/>
+        </template>
       </Suspense>
     </li>
   </ul>

@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.3.0",
-    "airtable": "^0.11.4",
     "pinia": "^2.0.16"
   }
 }
