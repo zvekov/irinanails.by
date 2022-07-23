@@ -11,7 +11,7 @@ export default defineNuxtConfig({
             {rel: 'preload', href: '/ph.webp', as: 'image'}
         ],
         htmlAttrs: {
-            'lang': 'ru'
+            'lang': 'ru_RU'
         },
         script: [],
     },
@@ -63,7 +63,7 @@ export default defineNuxtConfig({
     // runtime config
     runtimeConfig: {
         public: {
-            gtmId: process.env.GTM_ID,
+            gtmId: process.env.GTM_ID
         }
     }
 })
