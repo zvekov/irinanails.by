@@ -1,15 +1,15 @@
 <template>
   <div :id="galleryID" :class="$style.gallery">
     <a
-        v-for="(image, key) in imagesData"
-        :key="key"
+        v-for="(image, index) in imagesData"
+        :key="index"
         :href="image.thumbnails.full.url"
         :data-pswp-width="image.thumbnails.full.width"
         :data-pswp-height="image.thumbnails.full.height"
         target="_blank"
         rel="noreferrer"
-
-
+        data-aos="fade-up"
+        :data-aos-delay="lg ? `${index+1}00` : 0"
     >
       <div :class="$style.gallery__image">
         <img :src="image.thumbnails.large.url" alt="" loading="lazy"/>
@@ -21,6 +21,7 @@
 <script>
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
 export default {
   name: 'SimpleGallery',
@@ -29,7 +30,11 @@ export default {
     images: Array,
   },
   setup(props) {
+    const breakpoints = useBreakpoints(breakpointsTailwind)
+    const lg = breakpoints.isGreater('lg')
     return {
+      breakpoints,
+      lg,
       imagesData: props.images,
     };
   },
@@ -43,7 +48,6 @@ export default {
         zoomTitle: 'Увеличить',
         arrowPrevTitle: 'Предыдущая работа',
         arrowNextTitle: 'Следующая работа',
-
         errorMsg: 'Ошибка при загрузке',
         indexIndicatorSep: ' из ',
         pswpModule: () => import('photoswipe'),

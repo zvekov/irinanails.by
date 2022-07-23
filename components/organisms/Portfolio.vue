@@ -27,7 +27,7 @@ const images = computed(() => portfolio?.value.records[0]?.fields?.Images)
         galleryID="portfolio-gallery"
         :images="images"
         class=" grid grid-cols-1 md:grid-cols-3 gap-8 py-16"
-        data-aos="fade-up"/>
+        />
     <div data-aos="fade-up">
       <ui-button
           :class="$style.portfolio__button"

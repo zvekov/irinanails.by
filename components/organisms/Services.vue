@@ -1,7 +1,11 @@
 <script lang="ts" setup>
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import {storeToRefs} from 'pinia'
 import { useServicesStore } from '@/stores'
+
 const {getServicesForServices, loading} = storeToRefs(useServicesStore())
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const lg = breakpoints.isGreater('lg')
 </script>
 
 <template>
@@ -10,10 +14,12 @@ const {getServicesForServices, loading} = storeToRefs(useServicesStore())
       Подождитe...
     </div>
     <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-16 py-16">
-      <div v-for="item in getServicesForServices"
-           :key="item.id"
+      <div v-for="(item, index) in getServicesForServices"
+           :key="index"
            :class="$style.services__item"
-           data-aos="fade-up">
+           data-aos="fade-up"
+           :data-aos-delay="lg ? `${index+1}00` : 0"
+      >
         <span v-if="item.fields.svgIcon" v-html="item.fields.svgIcon"/>
         <h3>{{ item.fields.Name }}</h3>
         <p class="text-center text-lg">{{ item.fields.Description }}</p>
