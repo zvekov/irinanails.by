@@ -8,7 +8,7 @@
         sizes="xs:100vw sm:100vw md:50vw"
         placeholder
         preload
-        provider="static"
+        provider="vercel"
         :img-attrs="{class: 'mx-auto', height: '306', width: '306', alt: 'Ирина Пархоменко'}"
     />
     <div class="font-bold text-2xl pb-4" data-aos="fade-up">Ирина Пархоменко</div>

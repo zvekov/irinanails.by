@@ -17,7 +17,7 @@
             sizes="xs:100vw sm:100vw md:50vw"
             format="webp"
             loading="lazy"
-            provider="static"
+            provider="vercel"
             :img-attrs="{
               placeholder: image.thumbnails.small.url,
               height: image.thumbnails.large.height,
