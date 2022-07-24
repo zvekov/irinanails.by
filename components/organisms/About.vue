@@ -1,6 +1,15 @@
 <template>
   <ui-section title="О мастере" bg="cloud bg-cloud-y">
-    <img src="/ph.webp" class="mx-auto" width="306" height="306" loading="lazy" data-aos="fade-up"/>
+    <nuxt-picture
+        src="/ph.webp"
+        format="webp"
+        loading="lazy"
+        data-aos="fade-up"
+        sizes="xs:100vw sm:100vw md:50vw"
+        placeholder
+        preload
+        :img-attrs="{class: 'mx-auto', height: '306', width: '306', alt: 'Ирина Пархоменко'}"
+    />
     <div class="font-bold text-2xl pb-4" data-aos="fade-up">Ирина Пархоменко</div>
     <p data-aos="fade-up">
       Меня зовут Ирина! <br/>Я дипломированный мастер ногтевого сервиса!

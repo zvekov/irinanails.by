@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@gtm-support/vue-gtm": "^1.6.0",
+    "@nuxt/image-edge": "^1.0.0-27628766.3629b9a",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@types/aos": "^3.0.4",
     "@vueuse/nuxt": "^8.6.0",

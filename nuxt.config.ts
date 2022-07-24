@@ -4,11 +4,10 @@ export default defineNuxtConfig({
     // meta
     meta: {
         meta: [
-            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+            {name: 'viewport', content: 'width=device-width, initial-scale=1.0 viewport-fit=cover'},
         ],
         link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {rel: 'preload', href: '/ph.webp', as: 'image'}
+            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
         ],
         htmlAttrs: {
             'lang': 'ru_RU'
@@ -22,6 +21,7 @@ export default defineNuxtConfig({
     // modules
     modules: [
         '@vueuse/nuxt',
+        '@nuxt/image-edge',
         '@nuxtjs/tailwindcss'
     ],
 
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     // build
     build: {},
 
-    // postcss plugins
+    // postcss config
     postcss: {
         plugins: {
             tailwindcss: {},
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         },
     },
 
-    // vite plugins
+    // vite config
     vite: {
         logLevel: "info",
         optimizeDeps: {
@@ -58,6 +58,19 @@ export default defineNuxtConfig({
                 generateScopedName: "[hash:8]",
             }
         }
+    },
+
+    // image config
+    image: {
+        domains: ['dl.airtable.com'],
+        screens: {
+            xs: 320,
+            sm: 640,
+            md: 768,
+            lg: 1024,
+            xl: 1280,
+            xxl: 1536,
+        },
     },
 
     // runtime config

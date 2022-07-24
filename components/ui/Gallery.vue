@@ -12,7 +12,17 @@
         :data-aos-delay="lg ? `${index+1}00` : 0"
     >
       <div :class="$style.gallery__image">
-        <img :src="image.thumbnails.large.url" alt="" loading="lazy"/>
+        <nuxt-picture
+            :src="image.thumbnails.large.url"
+            sizes="xs:100vw sm:100vw md:50vw"
+            format="webp"
+            loading="lazy"
+            :img-attrs="{
+              placeholder: image.thumbnails.small.url,
+              height: image.thumbnails.large.height,
+              width: image.thumbnails.large.width,
+              alt: ''
+            }"/>
       </div>
     </a>
   </div>
