@@ -62,7 +62,7 @@ export default defineNuxtConfig({
 
     // image config
     image: {
-        domains: ['dl.airtable.com'],
+        // domains: ['dl.airtable.com'],
         screens: {
             xs: 320,
             sm: 640,
