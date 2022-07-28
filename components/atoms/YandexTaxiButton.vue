@@ -9,7 +9,7 @@ const options = {
     'end-lat': '52.891973',
     'end-lon': '30.035684',
     level: 'econom',
-    ref: 'https://irinanails.by',
+    ref: '2664500',
     appmetrica_tracking_id: '1178268795219780156',
     lang: 'ru'
   }
