@@ -6,6 +6,5 @@ User-agent: Yandex
 Disallow: */services-all
 Disallow: /booking
 
-Host: irinanails.by
-Sitemap: https://irinanails.by/sitemap.xml.gz
+Host: https://irinanails.by
 Sitemap: https://irinanails.by/sitemap.xml

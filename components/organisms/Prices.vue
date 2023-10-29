@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {storeToRefs} from 'pinia'
-import { useServicesStore } from '@/stores'
+import { useServicesStore } from '@/stores/services'
 const {getServicesForPrices, loading} = storeToRefs(useServicesStore())
 </script>
 

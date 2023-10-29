@@ -1,7 +1,7 @@
 <script setup>
 import {useWindowSize} from '@vueuse/core'
 import {storeToRefs} from 'pinia'
-import { useSettingsStore } from '@/stores'
+import { useSettingsStore } from '@/stores/settings'
 
 const {height} = useWindowSize()
 const {getPhone, getAddress, getWorkTime, loading} = storeToRefs(useSettingsStore())
@@ -19,7 +19,7 @@ const {getPhone, getAddress, getWorkTime, loading} = storeToRefs(useSettingsStor
           :phone="getPhone"
           :class="height <= 627 ? 'mb-4' : 'mb-8'"/>
       <ui-button
-          :class="$style.hero__button"
+          class="mb-auto max-w-[20rem]"
           :isExternal="true"
           :href="'#replain-link'"
           :target="'_self'"
@@ -36,10 +36,6 @@ const {getPhone, getAddress, getWorkTime, loading} = storeToRefs(useSettingsStor
 
   & h1 {
     @apply text-2xl text-center font-light;
-  }
-
-  &__button {
-    @apply mb-auto w-[20rem];
   }
 }
 </style>

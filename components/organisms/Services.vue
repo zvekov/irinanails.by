@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import {storeToRefs} from 'pinia'
-import { useServicesStore } from '@/stores'
+import { useServicesStore } from '@/stores/services'
 
 const {getServicesForServices, loading} = storeToRefs(useServicesStore())
 const breakpoints = useBreakpoints(breakpointsTailwind)

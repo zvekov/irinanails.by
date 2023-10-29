@@ -36,7 +36,7 @@ export default function useAirtable(options) {
     const fields = serializeQuery(options.fields, 'fields')
     const records = `${options.maxRecords ? '&maxRecords='+options.maxRecords : ''}`
     const filter = `${options.filterByFormula ? '&filterByFormula='+options.filterByFormula : ''}`
-    const url = `${apiUrl}/${apiBase}/${table}?${fields}${records}${filter}`
+    const url = `${apiUrl}/${apiBase}/${table}?${fields}${records}${filter}&view=Grid%20view`
 
     return url
 }

@@ -1,32 +1,42 @@
-import {defineNuxtConfig} from 'nuxt'
-
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     // meta
-    meta: {
-        meta: [
-            {name: 'viewport', content: 'width=device-width, initial-scale=1.0 viewport-fit=cover'},
-        ],
-        link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-        ],
-        htmlAttrs: {
-            'lang': 'ru_RU'
-        },
-        script: [],
+    app: {
+        buildAssetsDir: "/static/",
+        rootId: "app",
+        // pageTransition: {name: "page", mode: "out-in"},
+        head: {
+            charset: "utf-8",
+            htmlAttrs: {
+                "lang": "ru-RU"
+            },
+            link: [
+                {rel: "icon", type: "image/x-icon", href: "/favicon.ico"}
+            ],
+            meta: [
+                {
+                    name: "description",
+                    content: "Тот самый бар, который близок каждому. Атмосферное место для ценителей хорошего вина."
+                }
+            ],
+            title: "By The Wine – ресторан-бар в центре Москвы",
+            viewport:
+                'width=device-width, initial-scale=1.0 viewport-fit=cover',
+        }
     },
-
+    sourcemap: true,
     // css
     css: ['~/assets/scss/app.scss'],
 
     // modules
     modules: [
         '@vueuse/nuxt',
-        '@nuxt/image-edge',
+        "@nuxt/image",
+        "@pinia/nuxt",
         '@nuxtjs/tailwindcss'
     ],
 
     // build modules
-    buildModules: ['@pinia/nuxt'],
 
     // auto import components
     components: {
@@ -34,14 +44,10 @@ export default defineNuxtConfig({
     },
 
     // build
-    build: {},
-
-    // postcss config
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
+    build: {
+        transpile: [
+            "pinia",
+        ],
     },
 
     // vite config
@@ -57,7 +63,11 @@ export default defineNuxtConfig({
             modules: {
                 generateScopedName: "[hash:8]",
             }
-        }
+        },
+        build: {
+            // sourcemap: true,
+            target: "esnext",
+        },
     },
 
     // image config
@@ -78,5 +88,5 @@ export default defineNuxtConfig({
         public: {
             gtmId: process.env.GTM_ID
         }
-    }
-})
+    },
+});
