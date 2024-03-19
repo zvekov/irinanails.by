@@ -71,7 +71,9 @@ useHead({
 
 <template>
   <div>
-    <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
+    <client-only>
+      <atoms-particles class="w-full h-full z-[-1] absolute max-w-full max-h-full" />
+    </client-only>
     <organisms-hero/>
     <organisms-about  />
     <organisms-services />

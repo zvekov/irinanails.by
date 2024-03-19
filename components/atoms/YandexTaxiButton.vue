@@ -6,8 +6,8 @@ const options = {
   query: {
     'start-lat': '',
     'start-lon': '',
-    'end-lat': '52.891973',
-    'end-lon': '30.035684',
+    'end-lat': '52.893321',
+    'end-lon': '30.044783',
     level: 'econom',
     ref: '2664500',
     appmetrica_tracking_id: '1178268795219780156',
@@ -17,7 +17,7 @@ const options = {
 const url = `https://${options.app_code}.redirect.appmetrica.yandex.com/route?` + new URLSearchParams(options.query)
 
 const text = 'Вызвать такси до'
-const address = 'ул. Петровского, 44'
+const address = 'ул. Первомайская, 47'
 
 const clickYandexGo = () => {
   window.ym(45820515,'reachGoal','openYandexGo')
@@ -66,7 +66,7 @@ const clickYandexGo = () => {
 
 <style lang="scss" module>
 .yandexTaxiBtn {
-  @apply w-[14rem] bg-white rounded-lg py-2 grid grid-rows-2 grid-cols-4 items-center;
+  @apply w-[14.5rem] bg-white rounded-lg py-2 grid grid-rows-2 grid-cols-4 items-center;
   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.15));
 
   &__icon {

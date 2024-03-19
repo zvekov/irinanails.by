@@ -47,6 +47,7 @@ export default defineNuxtConfig({
     build: {
         transpile: [
             "pinia",
+            "tsparticles"
         ],
     },
 

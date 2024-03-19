@@ -1,6 +1,6 @@
 <script setup>
 import {ref, onMounted} from 'vue'
-import {yandexMap, ymapMarker} from 'vue-yandex-maps'
+import {YandexMap, YandexMarker} from 'vue-yandex-maps'
 
 const map = ref()
 const pageReady = ref(false)
@@ -8,12 +8,12 @@ const settings = {
   type: "map", // Допустимые значения: map, satellite, hybrid.
   behaviors: ["multiTouch"], // Отключаем скроллинг карты в мобиле. Работает при нажатии двумя пальцами
 }
-const coords = [52.892, 30.035675]
+const coords = [52.89338, 30.044783]
 const markerIcon = {
-  layout: "default#image",
-  imageHref: "/marker.png",
-  imageSize: [181, 100],
-  imageOffset: [-89, -99]
+  iconLayout: "default#image",
+  iconImageHref: "/marker.png",
+  iconImageSize: [181, 100],
+  iconImageOffset: [-89, -99]
 }
 
 onMounted(() => {
@@ -25,16 +25,18 @@ onMounted(() => {
 <template>
   <ui-section title="На карте" bg="cloud bg-cloud-t">
       <div data-aos="fade-up" class="pt-16 pb-8 w-full h-full z-50">
-        <component v-if="pageReady" ref="map" :is="yandexMap" id="map"
+        <client-only>
+          <YandexMap v-if="pageReady" ref="map" id="map"
                    :class="$style.contacts__map"
-                   :coords="coords"
+                   :coordinates="coords"
                    :zoom="17"
                    :map-type="settings.type"
                    :scroll-zoom="false"
                    :behaviors="settings.behaviors"
         >
-          <component :is="ymapMarker" :coords="coords" :icon="markerIcon" :markerId="1"/>
-        </component>
+          <YandexMarker :coordinates="coords" :options="markerIcon" :markerId="1"/>
+        </YandexMap>
+        </client-only>
       </div>
       <div  class="z-40" data-aos="zoom-in-down" data-aos-duration="500" >
         <atoms-yandex-taxi-button class="mb-16 hover:scale-105 transition-all"/>
